@@ -33,9 +33,5 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    //按条件查询
-    @Select("<script>" +
-            "select * from user where username = #{username} " +
-            "</script>")
-    List<User> selectByUserName(@Param("username")String username);
+
 }

@@ -32,7 +32,7 @@ public class loginController {
 		int b = 0;
 		String sessionCode = (String) request.getSession().getAttribute("checkcode");
 		User loginUser = userService.loginFindByUnameAndPwd(user.getUsername(),user.getPassword());
-		
+
 		if (!sessionCode.equalsIgnoreCase(checkImg)) {
 			request.getSession().setAttribute("message", "验证码输入错误");
 			 return "redirect:login.action";
@@ -52,7 +52,6 @@ public class loginController {
 			return "redirect:index.action";
 		}
 		return null;
-		//return "redirect:index.action";
 	}
 
 	// 用户退出

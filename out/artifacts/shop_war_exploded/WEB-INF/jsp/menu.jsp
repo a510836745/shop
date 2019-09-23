@@ -48,7 +48,7 @@
 				   |</li>
 				</c:when>
 				<c:otherwise>
-					<li class="userInfo"   >
+					<li class="userInfo">
 						<a href="${pageContext.request.contextPath}/searchUserInfo.action" style = "color : red">${loginUser.name}</a>
 						<ul class="userSetting">
 							<li><a href="${pageContext.request.contextPath}/searchUserInfo.action" style = "color : red">个人信息</a></li>

@@ -98,13 +98,16 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> selectUserByUserName(String username) throws Exception {
+	public User selectUserByUserName(String username) throws Exception {
 		try {
-			List<User> list = userMapper.selectByUserName(username);
-			if(list==null||list.isEmpty()){
-				return null;
+			UserExample example = new UserExample();
+			UserExample.Criteria criteria = example.createCriteria();
+			criteria.andUsernameEqualTo(username);
+			List<User> list = userMapper.selectByExample(example);
+			if(list.size()>0 && list!=null){
+				return list.get(0);
 			}
-			return list;
+			return null;
 
 		}catch (Exception e) {
 			log.error("查询错误",e);

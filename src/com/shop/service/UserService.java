@@ -23,6 +23,6 @@ public interface UserService {
 	//查询所有用户
 	public List<User> admin_findAll() throws Exception;
 	//按条件查询用户
-	public List<User> selectUserByUserName(String username)throws Exception;
+	public User selectUserByUserName(String username)throws Exception;
 
 }

@@ -76,37 +76,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   </div>
                   <form id="userInfoForm" method="post" action="${pageContext.request.contextPath}/updateUserInfo.action">
                       <table>
-                        <c:forEach items="${list}" var="u">
+
 
                           <tbody>
 
                           <tr>
                               <th>用户名:</th>
-                              <td><input type="text" id="username" name="username" class="text" value="${u.username}" maxlength="200"  readonly></td>
+                              <td><input type="text" id="username" name="username" class="text" value="${user.username}" maxlength="200"  readonly></td>
 
 
                           </tr>
 
                           <tr>
                               <th>姓名:</th>
-                              <td><input type="text" id="name" name="name" class="text" placeholder = "${u.name}" value="${u.name}" maxlength="200"></td>
+                              <td><input type="text" id="name" name="name" class="text" placeholder = "${user.name}" value="${user.name}" maxlength="200"></td>
                           </tr>
                           <tr>
                               <th><span class="requiredField"></span>E-mail:</th>
-                              <td><input type="text" id="email" name="email" class="text" maxlength="200" placeholder="${u.email}" value="${u.email}" onblur = "checkEmail(this.value)">
+                              <td><input type="text" id="email" name="email" class="text" maxlength="200" placeholder="${user.email}" value="${user.email}" onblur = "checkEmail(this.value)">
                                   <span style="color:red;"><s:fielderror fieldName="email"></s:fielderror></span>
                               </td>
                               <td id="test_email"></td>
                           </tr>
                           <tr>
                               <th>电话:</th>
-                              <td><input type="text" id="phone" name="phone" class="text" placeholder = "${u.phone}" value="${u.phone}" onblur = "checkPhone(this.value)"></td>
+                              <td><input type="text" id="phone" name="phone" class="text" placeholder = "${user.phone}" value="${user.phone}" onblur = "checkPhone(this.value)"></td>
                               <td id="test_phone"></td>
                           </tr>
 
                           <tr>
                               <th>地址:</th>
-                              <td><input type="text" name="addr" class="text" maxlength="200" placeholder="${u.addr}" value="${u.addr}">
+                              <td><input type="text" name="addr" class="text" maxlength="200" placeholder="${user.addr}" value="${user.addr}">
                                   <span style="color:red;"><s:fielderror fieldName="addr"></s:fielderror></span>
                               </td>
                           </tr>
@@ -130,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                           </tr>
                           </tbody>
-                        </c:forEach>
+
                       </table>
 
                   </form>

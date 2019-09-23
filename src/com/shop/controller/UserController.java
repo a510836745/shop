@@ -18,20 +18,31 @@ import java.util.List;
 public class UserController {
 	@Autowired
 	UserService userService;
+
+
 	//查询个人信息
 	@RequestMapping("/searchUserInfo")
 	public String searchUserInfoByName( Model model, HttpServletRequest request) throws Exception{
 		User loginUser = (User) request.getSession().getAttribute("loginUser");
 		String username = loginUser.getUsername();
-		List<User> list = userService.selectUserByUserName(username);
-		model.addAttribute("list", list);
+		User user  = userService.selectUserByUserName(username);
+		model.addAttribute("user", user);
 		return "userInfo";
 	}
 	//修改个人信息
 	@RequestMapping("/updateUserInfo")
 	public String  updateUserInfo (User user,Model model, HttpServletRequest request)throws  Exception{
-		User loginUser = (User) request.getSession().getAttribute("loginUser");
+
 		userService.activeUser(user);
+		System.out.println(request.getSession());
+
+		request.getSession().removeAttribute("loginUser");
+		System.out.println(request.getSession());
+//		List<User> list  = userService.selectUserByUserName(user.getUsername());
+		User user1  = (User) userService.selectUserByUserName(user.getUsername());
+		request.getSession().setAttribute("loginUser", user1);
+
+
 		return "redirect:/searchUserInfo.action";
 
 	}
